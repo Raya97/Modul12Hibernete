@@ -5,6 +5,7 @@ INSERT INTO planet (id, name) VALUES ('EARTH', 'Earth');
 INSERT INTO planet (id, name) VALUES ('JUP', 'Jupiter');
 INSERT INTO planet (id, name) VALUES ('SAT', 'Saturn');
 
+
 -- Insert clients
 INSERT INTO client (name) VALUES ('John Doe');
 INSERT INTO client (name) VALUES ('Jane Doe');
