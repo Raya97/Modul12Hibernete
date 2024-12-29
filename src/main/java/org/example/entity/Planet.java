@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 /**
@@ -29,6 +30,7 @@ public class Planet implements Serializable {
      */
     @Id
     @Column(name = "id", length = 10, nullable = false)
+    @Pattern(regexp = "^[A-Z0-9]+$", message = "ID must contain only uppercase Latin letters and digits.")
     private String id;
 
     /**
@@ -37,18 +39,4 @@ public class Planet implements Serializable {
      */
     @Column(name = "name", length = 500, nullable = false)
     private String name;
-
-    /**
-     * Sets the ID of the planet.
-     * Ensures that the ID contains only uppercase Latin letters and numbers.
-     *
-     * @param id The ID to set.
-     * @throws IllegalArgumentException if the ID does not match the required format.
-     */
-    public void setId(String id) {
-        if (id == null || !id.matches("^[A-Z0-9]+$")) {
-            throw new IllegalArgumentException("Planet ID must consist only of uppercase Latin letters and digits.");
-        }
-        this.id = id;
-    }
 }
